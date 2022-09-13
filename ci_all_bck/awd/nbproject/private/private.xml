@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/wamp64/www/awd/app/Controllers/AWD.php</file>
+            <file>file:/C:/wamp64/www/awd/app/Models/ADModel.php</file>
+            <file>file:/C:/wamp64/www/awd/app/Controllers/Manufacturer.php</file>
+            <file>file:/C:/wamp64/www/awd/app/Models/EngineModelM.php</file>
+            <file>file:/C:/wamp64/www/awd/app/Views/engine_model/engine_model_table.php</file>
+            <file>file:/C:/wamp64/www/awd/app/Views/engine_model/engine_model_form.php</file>
+            <file>file:/C:/wamp64/www/awd/app/Views/default_component/auto_complete_mul_fields.php</file>
+            <file>file:/C:/wamp64/www/awd/app/Controllers/EngineModel.php</file>
+            <file>file:/C:/wamp64/www/awd/app/Config/Routes.php</file>
+        </group>
+    </open-files>
+</project-private>

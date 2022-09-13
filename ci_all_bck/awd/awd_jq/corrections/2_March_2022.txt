@@ -1,0 +1,12 @@
+Aircraft{Model, Type, Serial Number} {manufacturer -- model -- type}
+Aircraft Model {Model, Type, TCDS X2}
+Manufacturer Name
+Aircraft Type{Type, Manufacturer}
+
+Issue date {till today}
+AD Number is not unique, AD Number + issued by is unique
+Quick Filters{
+  show superseded records,
+}
+
+ADD button <-- Save button

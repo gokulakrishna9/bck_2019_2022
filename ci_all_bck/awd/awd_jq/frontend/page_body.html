@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS bootstrap.min.css-->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <title>AWD</title>
+</head>
+
+<body>
+  <!-- LeftNav, Header, Content -->
+  <div class="container-fluid">
+    <div class="row" id="header"></div>
+    <div class="row">
+      <div class="col-2" id="leftnav">col-2</div>
+      <div class="col-10" id="form_grid">col-10</div>
+    </div>
+    <div class="row">
+      <div class="col-12" id="filter_form"></div>
+    </div>
+    <div class="row">
+      <div class="col-12" id="pagination_row"></div>
+    </div>
+    <div class="row">
+      <div class="col-12" style="overflow-x: auto; white-space: nowrap;" id="data_table"></div>
+    </div>
+  </div>
+  <!-- Optional JavaScript; choose one of the two! -->
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/jquery.tablesorter.js"></script>
+  <script src="./js/jquery.tablesorter.widgets.js"></script>
+  <script>
+    $.ajaxSetup({
+      // Disable caching of AJAX responses
+      cache: false
+    });
+
+    $(function () {
+      $.tablesorter.filter.types.start = function (config, data) {
+        if (/^\^/.test(data.iFilter)) {
+          return data.iExact.indexOf(data.iFilter.substring(1)) === 0;
+        }
+        return null;
+      };
+      // search for a match at the end of a string
+      // "a$" matches "Llama" but not "aardvark"
+      $.tablesorter.filter.types.end = function (config, data) {
+        if (/\$$/.test(data.iFilter)) {
+          var filter = data.iFilter,
+            filterLength = filter.length - 1,
+            removedSymbol = filter.substring(0, filterLength),
+            exactLength = data.iExact.length;
+          return data.iExact.lastIndexOf(removedSymbol) + filterLength === exactLength;
+        }
+        return null;
+      };
+      $("#header").load("header.html");
+      $("#leftnav").load("leftnav_awd.html");
+      $("#filter_form").load("pagination_form.html");// The node to be monitored
+
+      var target = $("#data_table")[0];
+
+      // Create an observer instance
+      var observer = new MutationObserver(function (mutations) {
+        console.log('Mutation Observer Called');
+        mutations.forEach(function (mutation) {
+          var newNodes = mutation.addedNodes; // DOM NodeList
+          if (newNodes !== null) { // If there are new nodes added
+            var $nodes = $(newNodes); // jQuery set
+            $nodes.each(function () {
+              var $node = $(this);
+              if ($node.hasClass("tablesorter")) {
+                $('#input-table').tablesorter({
+                  theme: 'blue',
+                  widgets: ['zebra', 'filter'],
+                  widgetOptions: {
+                    filter_reset: '.reset'
+                  }
+                });
+                //$('#input-table').tablesorter().trigger('update');
+              }
+            });
+          }
+        });
+      });
+
+      // Configuration of the observer:
+      var config = {
+        attributes: true,
+        childList: true,
+        characterData: true
+      };
+
+      // Pass in the target node, as well as the observer options
+      observer.observe(target, config);
+
+      // Later, you can stop observing
+      //observer.disconnect();
+    });
+
+    $(document).on('click', ".nav-link", function (event) {
+      event.preventDefault();
+      console.log('Nav Link Clicked');
+      // remove first character from href
+      let url = event.target.attributes.href.value.substring(1);
+      console.log(url);
+      // have a switch case with all routes
+      switch (url) {
+        case 'aircraft-worthiness-directive':
+          $("#leftnav").load("leftnav_awd.html");
+          $("#form_grid").load("awd_form.html");
+          $("#filter_form").load("awd_filter.html");
+          $("#pagination_row").load("pagination_form.html");
+          $("#data_table").load("awd_table.html");
+          break;
+        case 'aircraft':
+          $("#leftnav").load("leftnav_aircraft.html");
+          $("#form_grid").load("aircraft_form.html");
+          $("#filter_form").load("aircraft_filter.html");
+          $("#data_table").load("aircraft_table.html");
+          break;
+        case 'ad-type':
+          $("#form_grid").load("ad_type_form.html");
+          $("#filter_form").load("ad_type_filter.html");
+          $("#pagination_row").load("pagination_form.html");
+          $("#data_table").load("ad_type_table.html");
+          break;
+        case 'aviation-authority':
+          $("#form_grid").load("aviation_authority_form.html");
+          $("#filter_form").load("aviation_authority_filter.html");
+          $("#pagination_row").load("pagination_form.html");
+          $("#data_table").load("aviation_authority_table.html");
+          break;
+        case 'aircraft-model':
+          $("#form_grid").load("aircraft_model_form.html");
+          $("#filter_form").load("aircraft_model_filter.html");
+          $("#pagination_row").load("pagination_form.html");
+          $("#data_table").load("aircraft_model_table.html");
+          break;
+        case 'manufacturer':
+          $("#form_grid").load("manufacturer_form.html");
+          $("#filter_form").load("manufacturer_filter.html");
+          $("#pagination_row").load("pagination_form.html");
+          $("#data_table").load("manufacturer_table.html");
+          break;
+        case 'aircraft-type':
+          $("#form_grid").load("aircraft_type_form.html");
+          $("#filter_form").load("aircraft_type_filter.html");
+          $("#pagination_row").load("pagination_form.html");
+          $("#data_table").load("aircraft_type_table.html");
+          break;
+        case 'airframe-type':
+          $("#form_grid").load("airframe_type_form.html");
+          $("#filter_form").load("airframe_type_filter.html");
+          $("#pagination_row").load("pagination_form.html");
+          $("#data_table").load("airframe_type_table.html");
+          break;
+        case 'engine-model':
+          $("#form_grid").load("engine_model_form.html");
+          $("#filter_form").load("engine_model_filter.html");
+          $("#pagination_row").load("pagination_form.html");
+          $("#data_table").load("engine_model_table.html");
+          break;
+        case 'engine-type':
+          $("#form_grid").load("engine_type_form.html");
+          $("#filter_form").load("engine_type_filter.html");
+          $("#pagination_row").load("pagination_form.html");
+          $("#data_table").load("engine_type_table.html");
+          break;
+        default:
+          break;
+      }
+    });
+  </script>
+  <!-- Option 1: Bootstrap Bundle with Popper bootstrap.bundle.min.js-->
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

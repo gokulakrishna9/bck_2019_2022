@@ -1,0 +1,107 @@
+1)  DB Definition{Done}
+1.  cg_db
+2.  cg_db_table_def
+3.  cg_db_table_fields
+2)  Application Definition{Done}
+1.  cg_application
+2.  cg_db_app_link
+3)  Layout Builder{Done}
+1.  cg_layout{
+      layout_id,
+      layout_name,
+      layout_definition,
+      layout_description,
+      inserted_on,
+      updated_on
+    }
+2.  cg_layout_element{
+      cg_element_id,
+      element_id,
+      element_definition,
+      element_description
+    }
+3.  cg_layout_element_properties{
+      cg_property_id,
+      property_type_id,
+      property_id,
+      property_value{if function, only function name}
+    }
+4)  Datasource{some column corrections}
+1.  cg_ds{{make rdbms}
+      JSON structure,
+      select the tree | set the base of the query | write a query, 
+      define join, 
+      where conditions, 
+      grouping, 
+      having,
+      cg_datasource_php_transform{},
+      cg_datasource_js_transform{}
+    }{
+      datasource_id, application_id, datasource_name, datasource_type_id, definition, desciption, inserted_on, update_on 
+    }{Done}
+2.  cg_ds_user_input{
+      form_id, form_name, application_id, description, definition, inserted_on, update_on
+    }{Done}
+3.  cg_ds_form_element{
+      ds_element_id, form_id, db_element_id{change this to field_id}, element_id{change this to ht_element_id}, ordering, inserted_on, updated_on
+    }{Done}
+4.  cg_ds_form_element_properties{
+      ds_element_id, ht_property_id, property_value, inserted_on, updated_on
+    }{Done}
+5.  cg_ds_query_column{
+      query_column_id, datasource_id, 
+      where_operator, filter_name, where_type, condition_group, 
+      in_filter_name, in_operator,
+      join_column_id, join_type, table_one_alias, table_two_alias,
+      having_operator, having_variable_name
+    }
+6.  cg_ds_text_query{
+
+    }
+7.  cg_ds_php_transform{
+
+    }
+8.  cg_ds_js_transform{
+
+    }
+5)  Page Builder
+1.  cg_pg{
+      page_id, page_name, application_id, layout_id, page_definition, description, inserted_on, update_on
+    }
+2.  cg_page_ds{
+      link_id, page_id, ds_id, ordering
+    }
+3.  cg_page_js_actions{
+      // draw elements, table transforms, ui_events, simple ajax fetch, draw graphs
+      element_id, event, event_method, component
+    }
+4.  cg_page_server_actions{
+      // CRUD DB/Session{define the controller/method url/code}
+    }
+5.  cg_page_route_elements{
+      // layout_position/route element
+    }
+5)  Define ACL
+1.  cg_user_acl_page{
+      table,
+      field,
+      page
+    }
+
+6)  Build Routes
+1.  cg_app_route{
+      route_layout,
+      page
+    }
+
+
+Pause
+7)  cg_ci_db_config
+9)  cg_ds_user_input
+12) cg_pg_page
+13) cg_pg_workflow
+2)  cg_conf_react_form
+3)  cg_conf_react_route
+4)  cg_ds_acl
+5)  cg_ds_api
+3)  cg_db_acl

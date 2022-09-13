@@ -1,0 +1,25 @@
+1)  index.js{
+      provider react-redux
+      store redux store
+      render{
+        provider{
+          store,
+          approuter
+        }
+      }
+    }
+2)  approuter{
+      import components that will be linked to route,
+      hashrouter{
+        appheader{link{route_name}},
+        route path{route{path, component}}
+      }
+    }
+3)  application.jsx{
+      axios,
+      UNDERSTAND THIS
+    }
+4)  creating a react app{
+      npm uninstall -g create-react-app,      
+      npx create-react-app my-app
+    }

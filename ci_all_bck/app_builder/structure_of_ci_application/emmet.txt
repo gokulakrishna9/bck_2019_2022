@@ -1,0 +1,10 @@
+1)  child: >
+2)  Sibling: +
+3)  Climb-up: ^
+4)  Grouping: []
+5)  Multiplication: *
+6)  Naming and numbering: $
+7)  ID and Class attributes: ., #
+8)  Custom attributes: []
+9)  Text: {}
+10) Implicit tag names

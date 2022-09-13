@@ -1,0 +1,18 @@
+1)  User React + Redux
+2)  routing{parent components{bunch of components, pass redux state change to components}}
+3)  components{
+      w3.css,
+      react-router-dom
+    }
+4)  ideally-make this the builder{
+      state should worry about {inserts, updates, deletes}->table columns,
+      components should worry about event handling, passing state back to redux,
+      form composer,
+      grid composer a state value
+    }
+5)  for this app{
+      header,
+      leftnav,
+      lazy loaded form,
+      lazy loaded table
+    }

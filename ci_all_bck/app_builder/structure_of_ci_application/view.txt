@@ -1,0 +1,1 @@
+1)  Write each layout individually{generate the code}

@@ -1,0 +1,6 @@
+1)  Create DataBase with all entities 3 March 2022
+2)  Get Data from database using CI4 for one table 3 March 2022
+3)  Create One Page and implement CRUD 4 March 2022
+4)  Apply Table Sorter, AutoComplete on the Page 4 March 2022
+5)  Implement all pages 7 March 2022
+6)  Implement all pages 8 March 2022
